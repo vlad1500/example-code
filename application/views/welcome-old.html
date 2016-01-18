@@ -1,0 +1,103 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>HardCover</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+  		body { overflow: hidden; min-height: 700px; margin-top:-20px; padding-top:20px; }
+      .cont-wrapper { width: 980px; }
+      .heading { padding: 1em 0; }
+      .heading__title { margin: 1.5em 0 0 1.5em; }
+      .boxes { padding: 1em 0; }
+      .examples__item { margin: 0; padding: 0 0 0 15px; }
+  </style>
+</head>
+<body>
+  <!--[if lt IE 9]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Get Firefox here </a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+<div id="fb-root"></div>
+<script type="text/javascript">
+
+	window.fbAsyncInit = function() {
+		FB.init({appId: "<?php echo $this->config->item("fb_appkey"); ?>", status: true, cookie: true, xfbml: true, channelURL : "<?php echo $this->config->item("base_url"); ?>/channel.html", oauth:true});
+		FB.Canvas.setAutoGrow();
+	};
+	
+  window.onload = function() {
+	   //Run the timer every 100 milliseconds, you can increase this if you want to save CPU cycles
+	}
+  
+    (function(d){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document));
+
+</script>
+
+<div role="main">
+    <div class="container cont-wrapper">
+        <div class="heading clearfix">
+            <div class="pull-left">
+                <a href="https://dev.hardcover.me" class="brand" title="HardCover"><img alt="HardCover" src="img/hardcover-logo.png"></a>
+            </div>
+
+            <div class="heading__title pull-left"><h4>Create collaborative photo books and art projects.</h4></div>
+        </div>
+        <div class="banner">
+          <div class="row section">
+            <div class="col-md-6 box-group">
+              <img src="images/400x300-v2.jpg" class="img-responsive" alt="HardCover FB cover"/>
+            </div><!-- end box-group-->
+
+            <div class="col-md-6 box-group">
+                <a class="btn btn-orange btn-cta btn-block" href="<?=$this->config->item('base_url');?>">Get Started</a>
+                <div class="boxes">
+                    <div class="boxes__inner">
+                        <i class="icon icon--share"></i>
+                        <div class="icon__text">
+                            <p class="bold">View “The Cookie Book of Wisdom” A collection of hundreds of fortune cookies</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="boxes">
+                    <div class="boxes__inner">
+                        <i class="icon icon--book"></i>
+                        <div class="icon__text">
+                            <p class="bold">Easily share photo books, or invite others to add content to your existing books.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="boxes">
+                    <div class="boxes__inner">
+                        <p class="bold">Examples:</p>
+                        <ul class="examples__item">
+                          <li>Create a group albums by combining photos from multiple friends.</li>
+                          <li>Curator a book of short stories from people around the world.</li><br>
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- end box-group-->
+          </div>
+        </div><!-- end banner-->
+    </div><!-- end container-->
+</div><!-- end role-->
+
+<footer></footer>
+
+</div>    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>window.jQuery || document.write(' <script src="/js/libs/jquery-1.7.1.min.js" type="text/javascript"><\/script>')</script>
+</body>
+</html>

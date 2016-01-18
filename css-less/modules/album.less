@@ -1,0 +1,240 @@
+/* -- Album -- */
+#my_album_main{
+    margin:5px auto;
+    padding:5px;
+    width:100%;
+    height:auto;
+    overflow:hidden;
+}
+.my_album_list{
+    margin:0;
+    padding:2%;
+    width:45%;
+    float: left;
+}   
+.album_img{
+    float: left;
+    width:55%;
+
+    p {
+        input { margin-bottom:10px; }
+    }
+}
+.album_txt{
+    float: left;
+    margin: 0 0 0 15px;
+    width: 40%;
+
+    table {
+        td {
+            color:#131313;
+
+            &.label {
+                color: #4d4d4d;
+                padding: 0 20px 5px 0;
+            }
+        }
+    }
+}
+#share-text { 
+    margin:0 0 0 60px;
+
+    p {margin:5px 0;} 
+}
+    
+#sel_friends {
+    float:left;
+    margin:35px 0 0 100px;
+    display:block;
+    position:absolute;
+    width:190px;
+
+    li {
+        display : inline-block;
+        padding : 5px;
+        margin:-2px 0;
+        font-size : 11px;
+        width:95%;
+        border-bottom:1px solid #BBB;
+        background:#CDD3E0;
+        padding:3px;white-space:normal;
+        .box-shadow(1px 0 0 #EEE);
+        cursor:pointer;
+
+        img {
+            float:left; margin-right:5px;
+        }
+    }
+}
+
+/*Modal*/
+#modal_bckgrnd { 
+    background:#000; 
+    diplay:none;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:999999;
+}
+#modal_container { 
+    diplay:none;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:9999999;
+}
+#msg_container { 
+    width:450px;
+    height:auto;
+    padding:10px;
+    background:#303030;
+    .border-radius(10px);
+    overflow:hidden;
+}
+#msg_container_left,
+#msg_container_right,
+#msg_container{
+    h1 {
+        width:auto; 
+        height:auto;  
+        background:#6D84B4;
+        border: 1px solid #3b5998;
+        border-bottom: none; 
+        color:#FFF; 
+        font-size:13px;
+        margin: 0;
+        padding:8px 5px;
+    } 
+     
+}
+#form_container { 
+    width:auto;
+    height:auto;
+    background:#F2F2F2;
+    border:1px solid #989898;
+    z-index:99999999;
+    overflow:hidden;
+}
+#form_container, 
+#form_container_left,
+#form_container_right { 
+    p {
+        margin:10px;
+    }
+}
+
+#form_container, 
+#form_container_left{ 
+    
+    p {
+        &.lbl {
+            text-align: right; 
+            width: 70px;
+        }
+        &.inp {
+            text-align:left;
+            width:270px;
+            
+            input[type=text] {
+                padding:3px;
+            }
+            textarea {
+                padding:5px;
+            }
+        }
+    }
+}
+
+#msg_container_left { 
+    width:450px; 
+    height:auto; 
+    padding:10px; 
+    background:#303030;
+    .border-radius(10px); 
+    overflow:hidden;
+    float: left;
+}
+#msg_container_right { 
+    width:250px; 
+    height:auto; 
+    padding:10px; 
+    background:#303030;
+    .border-radius(10px);
+    overflow:hidden; 
+    float: left; 
+    margin-left:20px 
+}
+#form_container_left { 
+    width:auto; 
+    height:auto;
+    background: #fff; 
+    border:1px solid #555555;
+    border-top: none;
+    z-index:99999999; 
+    overflow:hidden;
+
+    p {
+        &.inp_f {
+            width:auto;
+            background: #f2f2f2;
+            padding: 5px; 
+            margin: 0 0 5px;
+            text-align:left;
+
+            input {
+                width: 97.4%;
+            }
+        }
+    }
+    ul {
+        &#friend_selector {
+            display:block; 
+            overflow-y:auto; 
+            height:300px; 
+            padding:5px;
+
+            li {
+                display:inline-block;
+                margin:5px 10px;
+                width:180px;
+
+                input[type=checkbox]{ 
+                    margin: 10px 5px 0 0;
+                }
+                p {
+                    font-size:10px;
+                }
+            }
+        }
+    }
+    input {
+        margin: 0 10px 0 0;
+    }
+}   
+
+#form_container_right { 
+    width:auto; 
+    height:375px; 
+    background:#F2F2F2; 
+    border:1px solid #989898;
+    border-top: none;
+    padding: 10px;
+    z-index:99999999; 
+    overflow:hidden;
+
+    table {
+        margin: 0 0 10px 0;
+
+        td {
+            font-size:12px; 
+            color:#888; 
+            padding:0 10px 0 0;
+        }
+    }
+}     
+#msg_container_bottom { 
+    width:760px;
+    height:auto;
+    padding:0;
+    overflow:hidden;
+}

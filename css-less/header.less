@@ -1,0 +1,143 @@
+.branding {
+	position: relative;
+	width: 131px;
+	height: 61px;
+	margin: 10px 0 0 0;
+	background: transparent url(../images/hardcover-logo.png) 0% no-repeat;
+	background-size: 100%;
+	z-index: 999;
+}
+/*
+.branding-small {
+	position: relative;
+	width: 58px;
+	height: 28px;
+	background: transparent url(../images/hardcover-logo-thumb_.png) 0% no-repeat;
+	background-size: 100%;
+	z-index: 9999;
+	float: left;
+}
+*/
+.branding-small {
+	position: relative;
+	width: 82px;
+	height: 37px;
+	background: transparent url(../images/hardcover-logo-thumb_.png) 0% no-repeat;
+	background-size: 100%;
+	z-index: 9999;
+	float: left;
+	left: -10px;
+}
+
+.navbar {
+	list-style: none;
+	min-height: 0;
+	margin: 45px 0 0 0;
+	padding-right: 0;
+	padding-left: 0;
+	margin-bottom: 0;
+	background-color: transparent;
+	.border-radius(0);
+	
+	& > li {
+		float: left;
+		border: 1px solid #3b4043;
+		border-bottom: 0;
+		margin: 0 2px 0 0;
+		padding: 0;
+		line-height: 31px;
+		bottom: -1px;
+		/*overflow: hidden;*/
+		position: relative;
+		.border-radius(4px 4px 0 0);
+		.box-shadow(inset 0 1px 0 #797878;);
+		#gradient > .vertical(#616161, #3a3a3a);
+
+		& > a {
+			display: block;
+			padding: 0 20px;
+			outline: none;
+			color: #fff;
+			font-size: 13px;
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-weight: bold;
+			text-shadow: 0 1px 0 #212121;
+			text-transform: uppercase;
+			text-decoration: none;
+
+			&:hover {
+				color: #fff;
+			}
+		}
+
+		&.active {
+			border: 1px solid #bb6212;
+			border-bottom: 0;
+			.box-shadow(inset 0 1px 0 #ffac61;);
+			#gradient > .vertical(#ff983b, #fd7d08);
+
+			& > a {
+				text-shadow: 0 1px 0 rgba(0,0,0,0.5);
+
+				&:hover {
+					color:#fff;
+				}
+			}
+		}
+	}
+}
+
+.dropdown-menu {
+	.box-sizing(border-box);
+	top: 28px;
+	left: -85px;
+	width: 1140px;
+	margin: -1px 0 0;
+	padding: 5px 10px;
+	background: #f70;
+	.border-radius(0);
+	border: 0;
+
+	& > li {
+		float: left;
+
+		& > a {
+			color: #fff;
+			padding: 0 15px;
+
+			&:hover {
+				color: #fff;
+				background: transparent;
+			}
+
+			&.active {
+				color: #333;
+				font-weight: bold;
+				text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+			}
+		}
+	}
+}
+.dropdown-menu--books {
+	position: relative;
+	top: 0;
+	left: 16px;
+	width: 100%;
+	.box-shadow(0 2px 6px rgba(0,0,0,0.175));
+}
+.avatar { margin: 0 0 10px; }
+.banner-no-app {
+	position: relative;
+	margin: 0 0 1em 0;
+	height: 585px;
+	background: url(../images/website-banner-v3.png) no-repeat;
+	background-size: 100%;
+}
+.panel-book-thumbs {
+	.panel-body { 
+
+		.book-small-thumbs {
+			width: 225px;
+		}
+	}
+}

@@ -1,0 +1,81 @@
+.scale-90 {
+	transform: scale(0.90);
+	-ms-transform: scale(0.90); /* IE 9 */
+	-webkit-transform: scale(0.90); /* Safari and Chrome */
+	-o-transform: scale(0.90); /* Opera */
+	-moz-transform: scale(0.90); /* Firefox */
+}
+
+.scale-80 {
+	transform: scale(0.80);
+	-ms-transform: scale(0.80); /* IE 9 */
+	-webkit-transform: scale(0.80); /* Safari and Chrome */
+	-o-transform: scale(0.80); /* Opera */
+	-moz-transform: scale(0.80); /* Firefox */
+}
+
+
+.scale-75 {
+	transform: scale(0.75);
+	-ms-transform: scale(0.75); /* IE 9 */
+	-webkit-transform: scale(0.75); /* Safari and Chrome */
+	-o-transform: scale(0.75); /* Opera */
+	-moz-transform: scale(0.75); /* Firefox */
+}
+
+.scale-70 {
+	transform: scale(0.70);
+	-ms-transform: scale(0.70); /* IE 9 */
+	-webkit-transform: scale(0.70); /* Safari and Chrome */
+	-o-transform: scale(0.70); /* Opera */
+	-moz-transform: scale(0.70); /* Firefox */
+}
+
+.scale-65 {
+	transform: scale(0.65);
+	-ms-transform: scale(0.65); /* IE 9 */
+	-webkit-transform: scale(0.65); /* Safari and Chrome */
+	-o-transform: scale(0.65); /* Opera */
+	-moz-transform: scale(0.65); /* Firefox */
+}
+
+.scale-60 {
+	transform: scale(0.60);
+	-ms-transform: scale(0.60); /* IE 9 */
+	-webkit-transform: scale(0.60); /* Safari and Chrome */
+	-o-transform: scale(0.60); /* Opera */
+	-moz-transform: scale(0.60); /* Firefox */
+}
+
+/* 1366 width reso */
+.scale-55 {
+	transform: scale(0.53);
+	-ms-transform: scale(0.53); /* IE 9 */
+	-webkit-transform: scale(0.53); /* Safari and Chrome */
+	-o-transform: scale(0.53); /* Opera */
+	-moz-transform: scale(0.53); /* Firefox */
+}
+
+.scale-50 {
+	transform: scale(0.50);
+	-ms-transform: scale(0.50); /* IE 9 */
+	-webkit-transform: scale(0.50); /* Safari and Chrome */
+	-o-transform: scale(0.50); /* Opera */
+	-moz-transform: scale(0.50); /* Firefox */
+}
+
+.scale-45 {
+	transform: scale(0.45);
+	-ms-transform: scale(0.45); /* IE 9 */
+	-webkit-transform: scale(0.45); /* Safari and Chrome */
+	-o-transform: scale(0.45); /* Opera */
+	-moz-transform: scale(0.45); /* Firefox */
+}
+
+.scale-40 {
+	transform: scale(0.40);
+	-ms-transform: scale(0.40); /* IE 9 */
+	-webkit-transform: scale(0.40); /* Safari and Chrome */
+	-o-transform: scale(0.40); /* Opera */
+	-moz-transform: scale(0.40); /* Firefox */
+}

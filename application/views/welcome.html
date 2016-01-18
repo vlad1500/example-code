@@ -1,0 +1,149 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>HardCover</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!--<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">-->
+  <link rel="stylesheet" href="css/prettyPhoto.css">
+  <link rel="stylesheet" href="css/website.css">
+  <script src="js/jquery-1.7.2.js" type="text/javascript"></script>
+  <!--script src="js/jquery.lint.js" type="text/javascript" charset="utf-8"></script-->
+  <script src="js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+  <script src="https://dev.hardcover.me/js/hardcover.integrate.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+  <!--[if lt IE 9]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Get Firefox here </a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+<div class="container cont-wrapper">
+    <div class="heading clearfix">
+        <a href="#" class="brand" title="HardCover"><img alt="HardCover" src="images/hardcover-logo.png"></a>
+        <div class="heading__title">Easily create collaborative photo books</div>
+    </div>
+    <div class="banner3">
+      <div class="bubble"></div>
+      <a href="#" class="btn btn-orange btn-cta visible-sm visible-md visible-lg">Create a book now</a>
+    </div><!-- end banner-->
+    <div class="section hidden-sm hidden-md hidden-lg">
+      <a href="#" class="btn btn-orange btn-block btn-mobile-show">HardCover full mobile app coming soon! Now start books on our Web app and add share with friends via Mobile and Web.</a>
+    </div>
+
+    <div id="js-example-books" class="section section--no-bg js-example-books">
+      <div class="row example-books">
+        <div class="col-md-12 text-right">
+          <h4 class="example-books__title">Example Books</h4>
+        </div>
+      </div>
+
+      <div class="row book-thumbs">
+        <div class="col-sm-3 col-md-3 col-example-thumbs">
+          <div class="panel panel-default panel-book-thumbs">
+            <div class="panel-body">
+              <a href="#hardcover=stash:hardcover-for-brands:Bookflip~0" class="hardCover"><img src="images/thumb-2.jpg" class="book-small-thumbs"/></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-sm-3 col-md-3 col-example-thumbs">
+          <div class="panel panel-default panel-book-thumbs">
+            <div class="panel-body">
+              <!--<div class="book-thumbs-title text-center">
+                <a href="#">HardCover on your site</a>
+              </div>-->
+              <a href="#hardcover=stash:hardcover-embed-book:Bookflip~0" class="hardCover"><img src="images/thumb-1.jpg" class="book-small-thumbs"/></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-3 col-md-3 col-example-thumbs">
+          <div class="panel panel-default panel-book-thumbs">
+            <div class="panel-body">
+              <a href="#hardcover=stash:hardcover-how-to:Bookflip~0" class="hardCover"><img src="images/thumb-3.jpg" class="book-small-thumbs"/></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-3 col-md-3 col-example-thumbs">
+          <div class="panel panel-default panel-book-thumbs">
+            <div class="panel-body text-center">
+              <a href="#hardcover=stash:step-by-step_guide:Bookflip~0" class="hardCover"><img src="images/thumb-4.jpg" class="book-small-thumbs"/></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <footer class="footer">
+        <div class="row">
+          <div class="col-sm-3 col-md-3">
+            <p class="copy">&copy; copyright 2014.</p>
+          </div>
+          <div class="col-sm-9 col-md-9">
+            <ul class="nav nav-pills">
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms &amp; Condition</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+</div><!-- end container-->
+<script>
+$(window).ready( function() {
+  var hi = $(window).height();
+  //alert(hi);
+
+  if (hi <= 767) {
+    $("#js-example-books").addClass('example-books-fixed');
+
+  } else if(hi <= 481) {
+    
+  } else {
+    $("#js-example-books").removeClass('example-books-fixed');
+  }
+
+  $("#js-example-books").hover( function() {
+
+    //$(this).css({'bottom':'0'});
+    $(this).animate({'bottom':'0'});
+
+  }, function() {
+    //$(this).removeAttr('style');
+    $(this).animate({'bottom':'-35px'});
+  });
+
+  $(window).resize( function() {
+    var hi = $(window).height();
+
+    if (hi <= 767) {
+      $("#js-example-books").addClass('example-books-fixed');
+    } else {
+      $("#js-example-books").removeClass('example-books-fixed');
+    }
+  });
+  $(".hardCover").each(function(){
+    var uagent = navigator.userAgent.toLowerCase();
+    console.log(uagent);
+    var isMobile = false;
+    if(navigator.userAgent.match(/android|iPhone/i) != null)
+        isMobile = true;
+    var thisHref = $(this).attr('href');
+    var hBook = thisHref.split("=")[1].split(":");
+    var hLinkHref = "/books/"+hBook[0]+"/"+hBook[1]+"#"+hBook[2];
+    if(isMobile)
+        $(this).attr('href',hLinkHref);
+  })
+  $(".panel-body a[rel^='prettyPhoto']").prettyPhoto();
+
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,382 @@
+<div id="app_loader" class="hideDiv"><div class="bar"><span></span></div></div>
+<style type="text/css">
+/* Invite Friends pop-up screen */
+	#form_container_if {
+		width: auto;
+		height: auto;
+		background-color: #fff;
+		border: 1px solid #555555;
+		border-top: none;
+		z-index: 99999999;
+		overflow: hidden;
+	}
+	#form_container_if .input_email {
+		position: relative;
+		left: -0.5px;
+		width: 98.1%;
+		height: 18px;
+	}
+	#form_container_if .input_search {
+		float: right;
+		width: 92%;
+		height: 18px;
+		border: none;
+	}
+	#form_container_if #search {
+		float: left;
+		cursor: pointer;
+		padding: 2px 2px 2px 9.5px;
+		border: none;
+	}
+	#form_container_if ul#invite_friends { 
+		width: 100%;
+		display: block;
+		overflow-y: scroll;
+		height: 300px;
+		z-index:9999999;
+		border-top: 1px solid #555555;
+	}
+	ul#invite_friends li {
+		display: inline-block;
+		margin: 10px 10px auto;
+		width: 175px;
+		font-size: 10px;
+		float: left; 
+		height: 35px;
+	}
+	ul#invite_friends li input[type="checkbox"] {
+		opacity: 100 !important;
+		float: left !important;
+		background-color: #e9ecee !important;
+		border: 1px solid #cacece !important;
+		box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05) !important;
+		padding: 8px !important;
+		border-radius: 3px !important;
+		display: inline-block !important;
+		position: relative !important;
+		top: 12px !important;
+		cursor: pointer !important;
+	}
+	ul#invite_friends li img {
+		padding: 2px;
+		border: 1px solid #cacece;
+		box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+		margin: 2px;
+	}
+	ul#invite_friends li span {
+		position: relative;
+		top: 9px;
+	}
+</style>
+<div id="msg_container">
+	<h1>Invite Friends</h1>
+	<div id="form_container_if">
+		<input id="email_add" type="text" placeholder="Type your friend's email address separated by semi-colon" class="input_email" /><br>
+		<img src="<?php echo $this->config->item("image_url"); ?>/search.png" id="search" /><input type="text" placeholder="or Search to Select friends..." class="input_search" />
+		<ul id="invite_friends">
+		<br><p id="loading" align="center">Loading...</p><p align="center"><label id="sh" class="hideDiv"><a href="#" id="check_all">Check All</a> | <a href="#" id="uncheck_all">Uncheck All</a> | <a href="#" id="show_all">Show All</a></label></p>
+		</ul>
+		<p class="float_right" style="margin-right:5px;padding:5px;"><input type="button" id="ok" name="ok" value="Ok" /><input type="button" id="cancel" name="cancel" value="Cancel" /></p>
+	</div>	
+</div>
+<script type="text/javascript">
+//JS Code for Invite Friends Pop-up screen
+var active_cover = "", my_friends = "", obj_friends, split_obj, _objname, _name, img_url;
+	
+	function searchList(search_val) {
+		/**
+		 * Search within the Friends list
+		 *
+		 * @param	String search_val Keyword to search friends' name
+		 */
+		$("#app_loader").fadeIn("slow");
+		if ($.trim(search_val) != "") {
+			$("ul#invite_friends li").hide();
+			$("ul#invite_friends li:icontains('"+ search_val +"')").show("slow");
+			$("p#loading").fadeOut("slow");
+			$("#app_loader").fadeOut("slow");
+			$("#sh").fadeIn("slow");
+			if ($("#invite_friends li").find(":visible").length <= 0) {
+				$("p#loading").html("No match found...").fadeIn("slow");
+			}
+		} else {
+			$("p#loading").html("Loading...").fadeOut("slow");
+			$("#sh").fadeOut("slow");
+			$("ul#invite_friends li").show();
+			$("#app_loader").fadeOut("slow");
+		}
+		return false;
+	}
+	
+	function showFriendsList(friends_list) {
+		/**
+		 * Display the list of your Facebook Friends
+		 *
+		 * @param	String friends_list Semi-colon separated values of your Facebook Friends' ID
+		 */
+		split_obj = friends_list.split(";");
+		$("#app_loader").fadeIn("slow");
+		$.each(split_obj, function(i, elem) {
+			_objname = elem.split(":");
+			_name = _objname[1];
+			img_url = "https://graph.facebook.com/"+ _objname[0] +"/picture";
+			$("#invite_friends").append('<li id="li'+ _objname[0] +'"><input id="'+ _objname[0] +'" type="checkbox" class="hc_checkbox" /><label for="'+ _objname[0] +'" class="float_left"></label><img class="float_left" width="30px" height="30px" src="'+ img_url +'"><span>'+ _name +'</span></li>').fadeIn("slow");
+			if (i >= (split_obj.length-1)) {
+				$("p#loading").fadeOut("slow");
+				$("#app_loader").fadeOut("slow");
+			}
+		});
+	}
+	
+	function sendToWall(send, alert_show) {
+		/*
+		 * Sends message invite to friend's Facebook wall
+		 *
+		 * @param	Array send_info Contains information of current user's friend/s
+		 */
+		var hc_token = $.cookie("hardcover_token"), book_info_id = $.cookie("hardcover_book_info_id"), book_name = "";
+		$("#app_loader").fadeIn("slow");
+		if (send.length > 0) {
+			$.ajax({
+				url		: "invite/getBookName",
+				type	: "post",
+				success	: function(result) {
+					var obj = $.parseJSON(result);
+					if (obj.status) {
+						book_name = $.trim(obj.book_name);
+						if (send["fb_id"].search("@") < 0) {
+							//Send to Friends Facebook wall
+							FB.api(send["fb_id"] +"/feed?access_token="+ hc_token, "post",
+							{
+								message		: send["msg"],
+								url			: "http://hardcover.me/share_album/preview/"+ book_info_id,
+								name		: book_name +(book_name.toLowerCase().search("hardcover") < 0 ? " in HardCover" : ""),
+								link		: "http://hardcover.me/share_album/preview/"+ book_info_id,
+								description	: "HardCover let's you create and share digital albums including group albums.",
+								picture 	: "http://hardcover.me/images/hardcover-logo-thumb.png"
+							},
+							function(result) {
+								if (alert_show) {
+									if (!result || result.error) {
+										alert("Sorry, but it seems like your friend \""+ send["fb_name"] +"\" disabled posting message to his/her Facebook wall.");
+									} else {
+										alert("\r\t\tFacebook Wall Post: "+ result.id +"\r\n\nYou successfully invited your friend \""+ send["fb_name"] +"\" to see your album \""+ book_name +"\".");
+									}
+								}
+								$("#app_loader").fadeOut("slow");
+							});
+						} else {
+							//Send to Friends email address
+							FB.api("/me", function(result) {
+								$.post("invite/sendEmail",
+								{
+									name		: send["fb_name"],
+									email		: send["fb_id"],
+									message		: send["msg"].replace("</textarea>", "").replace("<textarea style=\"width:98%;height:50px;overflow-y:scroll;\">", "").replace("center", "left"),
+									subject		: book_name +(book_name.toLowerCase().search("hardcover") < 0 ? " in HardCover" : ""),
+									album_name	: book_name,
+									from_name	: result.name,
+									from_email	: (result.username === null || $.trim(result.username) == "" ? result.email : result.username +"@facebook.com")
+								},
+								function (result) {
+									alert(result);
+									$("#app_loader").fadeOut("slow");
+								});
+							});
+						}
+					}
+					return false;
+				}
+			});
+		}
+		return false;
+	}
+	
+	$("#form_container_if .input_search").on("keydown", function(event) {
+		/**
+		 * Search bar - input text
+		 *
+		 */
+		if (event.which == 13) {
+			$("#form_container_if #search").click();
+			event.preventDefault();
+		}
+	});
+	
+	$("#form_container_if #search").on("click", function() {
+		/**
+		 * Search image
+		 *
+		 */
+		searchList($("#form_container_if .input_search").val());
+	});
+	
+	$("#ok").on("click", function() {
+		/**
+		 * Ok button
+		 *
+		 */
+		var tmp_friend = new Array(), friend_id = 0, curr_usr_name = "", friends_dd = "", send_info = ["fb_id", "fb_name", "msg"], obj_f = "";
+		$("#app_loader").fadeIn("slow");
+		if ($("#invite_friends li input[type=checkbox]:checked").length > 0) {
+			$("#invite_friends li input[type=checkbox]:checked").each(function() {
+				if ($(this).is(":checked")) {
+					friend_id = $(this).attr("id") +":"+ $("#li"+ $(this).attr("id") +" span").text();
+					tmp_friend.push(friend_id);
+				}
+			});
+		}
+		my_friends = "";
+		if (tmp_friend.length > 0) my_friends = tmp_friend.join(";");
+		tmp_friend = $.trim($("#email_add").val());
+		if (tmp_friend.length > 0) {
+			my_friends += ";"+ (tmp_friend.substring((tmp_friend.length - 1)) == ";" ? tmp_friend.substring(0, (tmp_friend.length - 1)) : tmp_friend).replace(/\s */gi, "");
+			if (my_friends.substring(0, 1) == ";") my_friends = my_friends.substring(1);
+		} else {
+			tmp_friend = "";
+		}
+		
+		if ($.trim(my_friends).length > 0) {
+			friends_dd = "";
+			friends_dd += "<option>Select Friend</option>";
+			if (my_friends.search(";") > 0) {
+				tmp_friend = my_friends.split(";");
+				$.each (tmp_friend, function(key, value) {
+					if (value.search("@") < 0) {
+						obj_f = value.split(":");
+						friends_dd += "<option value='"+ obj_f[0] +"'>"+ obj_f[1].substring(0, obj_f[1].indexOf(" ")) +"</option>";
+					} else {
+						obj_f = value.split("@");
+						friends_dd += "<option value='"+ $.trim(value) +"'>"+ obj_f[0].substring(0, (obj_f[0].search(".") > 0 ? obj_f[0].indexOf(".") : (obj_f[0].search("_") > 0 ? obj_f[0].indexOf("_") : obj_f[0].length + 1))) +"</option>";
+					}
+				});
+			} else {
+				obj_f = my_friends.split("@");
+				friends_dd += "<option value='"+ $.trim(my_friends) +"'>"+ obj_f[0].substring(0, (obj_f[0].search(".") > 0 ? obj_f[0].indexOf(".") : (obj_f[0].search("_") > 0 ? obj_f[0].indexOf("_") : obj_f[0].length + 1))) +"</option>";
+			}
+			if ($("#msg_container.message").html() === null) {
+				$("#msg_container").clone(true).addClass("message").appendTo("#modal_inner");
+				$("#msg_container.message").css({"width":"500px","margin-left":"auto","margin-right":"auto","margin-top":(($("#msg_container").height()/4)+30)+"px","margin-bottom":"auto"}).fadeOut("slow");
+				$("#msg_container.message").html("<h1>Compose Message Invite</h1><div id=\"form_container_if\" style=\"padding:10px;\"><select id=\"friends_name\" style=\"float:right;\" onchange=\"$('#friend_name').html($(this).find('option:selected').text().substring(0, 1).toUpperCase()+$(this).find('option:selected').text().substring(1));\"></select>\n<p id=\"msg\"></p></div></div>");
+				$("#msg_container.message #form_container_if").append("<p align=\"center\"><input type=\"button\" id=\"msg_send\" name=\"msg_send\" value=\"Send\" /><!--<input type=\"button\" id=\"msg_sendall\" name=\"msg_sendall\" value=\"Send to All\" />--><input type=\"button\" value=\"Back\" onclick=\"$('#msg_container.message').fadeOut('fast');$('#msg_container').fadeIn('slow');\" /></p>");
+			}
+			$("#msg_container").fadeOut("fast");
+			$("#form_container_if #friends_name").html(friends_dd);
+			FB.api("/me", function(result) {
+				curr_usr_name = result.name;
+				msg = "Hi <span id=\"friend_name\">...</span>,<br />\n";
+				msg += "<br /><p align=\"center\"><textarea style=\"width:98%;height:50px;overflow-y:scroll;\">I'm creating a digital album using photos and wall post from Facebook. I would like to add your content so that my album will have the perspective from you and me.</textarea></p>\n";
+				msg += "<br /><p>Thanks a lot,</p>\n";
+				msg += curr_usr_name +"<br /><br />\n";
+				$("#form_container_if #msg").empty().html(msg);
+			});
+			$("#msg_send").on("click", function() {
+				if ($("#friend_name").text() == "..." || $("#friend_name").text() == "Select Friend") {
+					alert("Please select a friend whom you want to send this message invite.");
+					$("#friends_name").focus();
+					return false;
+				}
+				send_info["fb_id"] = $("#friends_name").find("option:selected").val();
+				send_info["fb_name"] = $("#friends_name").find("option:selected").text();
+				send_info["msg"] = (send_info["fb_id"].search("@") > 0 ? $("#form_container_if #msg").html() : $("#form_container_if #msg").text());
+				sendToWall(send_info, true);
+			});
+			/*$("#msg_sendall").on("click", function() {
+				$("#friend_name").text("...");
+				$("#friends_name:first").attr("selected", "selected");
+				var all_friends = $("#friends_name").contents();
+				var msg_tmp = $("#form_container_if #msg").text();
+				$.each(all_friends, function(key, val) {
+					if (key > 0) {
+						send_info["fb_id"] = $(val).val();
+						send_info["fb_name"] = $(val).text();
+						send_info["msg"] = msg_tmp.replace("...", $(val).text());
+						sendToWall(send_info, false);
+					}
+				});
+			});*/
+			$("#app_loader").fadeOut("slow");
+			$("#msg_container.message").fadeIn("slow");
+		} else {
+			$("#app_loader").fadeOut("slow");
+			alert("NO FRIENDS SELECTED AND/OR EMAIL ADDRESS TYPED.\nPlease select friends from the list or type your friend's email address.")
+		}
+	});
+	
+	$.expr[":"].icontains = function(obj, index, meta, stack) {
+		return (obj.textContent || obj.innerText || jQuery(obj).text() || "").toLowerCase().indexOf(meta[3].toLowerCase()) >= 0;
+	};
+	
+	$("#show_all").click(function(e) {
+		/**
+		 * Show all the friends from the list
+		 *
+		 */
+		searchList("");
+		e.preventDefault();
+		return false;
+	});
+	
+	$("#email_add").on("keyup", function(e) {
+		/**
+		 * Email Address Input text
+		 *
+		 */
+		var e_add = "";
+		if (e.which == 13) {
+			$("#ok").click();
+		} else if (e.which == 32) {
+			e_add = $.trim($(this).val());//.replace(/\s */gi, "");
+			if (e_add.substring((e_add.length - 1)) != ";" && e_add != "" && e_add.charCodeAt((e_add.length - 1)) < 97) {
+				$(this).val(e_add.substring(0, (e_add.length - 1)) +"; ");
+			} else if (e_add.charCodeAt((e_add.length - 1)) > 96 && e_add.charCodeAt((e_add.length - 1)) < 123) {
+				$(this).val(e_add.substring(0, e_add.length) +"; ");
+			}
+		}
+		return false;
+	});
+	
+	$("#check_all").click(function(e) {
+		/**
+		 * Select all the friends shown from the list
+		 *
+		 */
+		if ($("#invite_friends li:visible").length > 0) {
+			$("#invite_friends li").find(":visible").attr("checked", "checked");
+		}
+		e.preventDefault();
+		return false;
+	});
+	
+	$("#uncheck_all").click(function(e) {
+		/**
+		 * Deselect all the friends shown from the list
+		 *
+		 */
+		if ($("#invite_friends li:visible").length > 0) {
+			$("#invite_friends li").find(":visible").removeAttr("checked");
+		}
+		e.preventDefault();
+		return false;
+	});
+	
+	$(function() {
+		/**
+		 * Loading the Invite Friends pop-up screen
+		 *
+		 */
+		$("#app_loader").fadeIn("slow");
+		$.ajax({
+			url		: "cover/getFBFriends",
+			type	: "post",
+			success	: function(result) {
+				obj_friends = $.parseJSON(result);
+				if (obj_friends.status) {
+					showFriendsList(obj_friends.friends);
+					$("#app_loader").fadeOut("slow");
+				}
+			}
+		});
+		$("#form_container_if #email_add").focus();
+	});
+</script>

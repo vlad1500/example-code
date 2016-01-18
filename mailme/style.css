@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+
+.mailme{
+	background-image:url(mail-button.png);
+	background-repeat:no-repeat;
+	background-position:left bottom;
+	height:30px;
+	width:111px;
+	display:block;
+	overflow:hidden;
+	border:0;
+}
+.mailme:hover{
+	background-position:left top;
+}

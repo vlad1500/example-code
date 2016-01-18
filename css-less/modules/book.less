@@ -1,0 +1,266 @@
+.overfl {
+    overflow:auto !important;
+    height:100% !important;
+}
+ 
+#bookbg {
+    background:#fcfcfc;
+    width:94%;
+    position:relative;
+    margin: 20px auto;
+    border: 10px solid #3e3e3e;
+    .border-radius(20px);
+    .box-shadow(0 5px 7px rgba(0,0,0,0.5));
+} 
+.bg_solid{
+    background:#84accc;
+    overflow:hidden;
+    .border-radius(5px);
+}
+#bookbg_cover_front,
+#bookbg_cover_back { 
+    left: 26%;
+    margin: 0px auto; 
+    min-height: 400px;
+    position: absolute;
+    top: 10%;
+    width: 47%;
+    .border-radius(5px);
+    min-height:400px;
+}
+#open_book_ico {
+    top:345px;
+    right:-47px !important;
+}
+#open_book_ico_b {
+    top:345px  ;
+    left:-28px !important;
+}
+.cover_image_f{
+    margin: 10px auto;
+}
+#bookbg_cover_front,
+#bookbg_cover_back{ 
+    p {
+        margin:10px;
+        &.top_p {
+            span {
+                font-size:28pt !important;
+                font-weight:normal !important;
+            }
+        }
+        &.bottom_p {
+            font-size:18pt !important;
+            font-weight:normal !important;
+        }
+    }
+    .bottom_p {
+        margin-top:50px !important;
+    }
+}
+.top_p {
+    padding-top:40px;
+    margin-bottom: 6px;
+    margin-top: 28px;
+    text-align: center;
+    width: 100%;
+}
+.bottom_p {
+    padding-bottom:50px;
+}
+
+.pages { margin:0px 10px; }
+
+.page {
+    position: absolute !important;
+    top: 0px;
+    height: 100%;
+    background:url(../images/load.gif) center center no-repeat;
+    font-family: 'Georgia','Times New Roman',serif;
+}
+.page-left {
+    left: 0px;/*15px;*/
+    box-sizing: border-box;
+    width: 50%;
+    padding-left:10px;
+    text-align: center;
+    overflow: hidden;
+    background: #fcfcfc url("../images/book_mid.png") right repeat-y;
+    .border-radius(10px 0 0 10px);
+}
+.page-right {
+    right: 0px;/*15px;*/
+    .box-sizing(border-box);
+    width: 50%;
+    padding-right:10px;
+    text-align: center;
+    overflow: hidden;
+}
+.pagebutton {
+    position: absolute;
+    top: 45%;
+    width: 24px;
+    z-index: 10;
+}
+#forward { right: -24px; }
+#backward { left: -32px; }
+.hide { display:none; }
+.show { display:block; }
+
+.pagesc { 
+    width:100%;
+    position:relative;
+    overflow:hidden;
+}
+.pageborder {
+    height: 100%;
+    padding: 6px 0;
+    position:absolute;
+}
+.pagesl { 
+    border-left:1px solid #CCC; 
+}
+.pagesr {
+    border-right:1px solid #CCC;
+    width:100%;
+}
+.phtlabel{
+    border:1px solid #CCC;
+    width:200px;
+    height:100px;
+    position:absolute;
+    background:#FF0000;
+    top:0px;
+    left:0px;
+}
+.phtlabel .box{ position:relative; }
+.phtlabel .move{
+    top:-8px;
+    position:absolute;
+    background:#FFF url(../images/drag.png) left top no-repeat;
+    width:16px;
+    height:16px;
+    left:-8px;
+}
+.bookbg-add-crop{
+    background:#ecf0f9;
+    border:#ccd0da 1px solid; 
+    .border-radius(5px);
+    height:auto;
+
+    ul {
+        margin: 0; 
+        padding: 10px 5px;
+        float: left;
+
+        li {
+            display:inline;
+            list-style:none;
+        }
+    }
+}
+#add_text_ico { 
+    width:32px; 
+    height:32px; 
+    float: left;
+    margin-left:5px;
+    margin-right:5px;
+    background:url('../images/book_icon_addtext.png');
+
+    &:hover {
+        width:32px;
+        height:32px;
+        float: left;
+        margin-left:5px;
+        margin-right:5px;
+        background:url('../images/book_icon_addtext_select.png');
+    }
+} 
+
+.crop_ico { 
+    width:32px;
+    height:32px;
+    float: left;
+    margin-left:5px;
+    margin-right:5px;
+    background:url('../images/book_icon_crop.png');
+
+    &:hover {
+        width:32px;
+        height:32px;
+        float: left;
+        margin-left:5px;
+        margin-right:5px;
+        background:url('../images/book_icon_crop_select.png');
+    }
+} 
+
+.rotate_left { 
+    width:32px;
+    height:32px;
+    float: left;
+    margin-left:5px;
+    margin-right:5px;
+    background:url('../images/book_icon_rotateleft.png');
+
+    &:hover {
+        width:32px;
+        height:32px; 
+        float: left;
+        margin-left:5px;
+        margin-right:5px;
+        background:url('../images/book_icon_rotateleft_select.png');
+    }
+} 
+.rotate_right{ 
+    width:32px;
+    height:32px;
+    float: left;
+    margin-left:5px;
+    margin-right:5px;
+    background:url('../images/book_icon_rotateright.png');
+
+    &:hover {
+        width:32px;
+        height:32px;
+        float:left;
+        margin-left:5px;
+        margin-right:5px;
+        background:url('../images/book_icon_rotateright_select.png');
+    }
+}
+.flipvertical { 
+    width:32px;
+    height:32px;
+    float: left;
+    margin-left:5px;
+    margin-right:5px;
+    background:url('../images/book_icon_flipvertical.png');
+
+    &:hover {
+        width:32px;
+        height:32px;
+        float: left;
+        margin-left:5px;
+        margin-right:5px;
+        background:url('../images/book_icon_flipvertical_select.png');
+    }
+}
+.fliphorizontal {
+    width:32px;
+    height:32px;
+    float: left;
+    margin-left:5px;
+    margin-right:5px;
+    background:url('../images/book_icon_fliphorizontal.png');
+
+    &:hover {
+        width:32px;
+        height:32px;
+        float: left;
+        margin-left:5px;
+        margin-right:5px;
+        background:url('../images/book_icon_fliphorizontal_select.png');
+    }
+}
+

@@ -1,0 +1,51 @@
+<html>
+<head></head>
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=331059976950036";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-login-button" data-show-faces="false"></div>
+<script>
+window.fbAsyncInit = function() {
+
+FB.ui({
+   method: 'permissions.request',
+   'perms': 'publish_stream',
+   'display': 'iframe'
+  },
+  function(response) {
+    // check response.perms that it has all the required permissions...  if so, continue to next page.
+    // TODO should be a better way to do this since UI checks perms
+
+
+  }
+);
+}
+function isSetProperSubset(subset, superset) {
+  // first check lengths
+  if (subset.length > superset.length) {
+    return false;
+  }
+
+  var lookup = {};
+
+  for (var j in superset) {
+    lookup[superset[j]] = superset[j];
+  }
+
+  for (var i in subset) {
+    if (typeof lookup[subset[i]] == 'undefined') {
+      return false;
+    }
+  }
+  return true;
+}
+</script>
+<a href="javascript:FB.login(function(response) {}, {scope: 'email,user_likes'});" id="clickToLogin">fb login</a>
+</body>
+</html>

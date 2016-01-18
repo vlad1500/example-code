@@ -1,0 +1,481 @@
+/* Start of Cover tab CSS */
+#cover_header {
+    overflow:auto;
+    width: 100%;
+    height:auto;
+    padding: 1em;
+    background: #f0f0f0;
+    border: 1px solid #E0E3E8;
+    .box-shadow(~'0 1px 2px #E9EAEA, 0 1px 0 #F7F7F7 inset');
+    .border-radius(5px);
+    .box-sizing(border-box);
+
+    h2 {
+        margin: 0;
+    }
+}
+
+#cover_header_left{
+    overflow:hidden;
+    padding:0;
+
+    .p_radio {
+        margin: 10px 0 0 10px;
+    }
+}
+
+#cover_header_right {
+    input {
+        margin: 0 5px 0 0;
+    }
+    
+}
+#cover_main{
+    background: url(/images/HardCover_gridBg.gif) repeat;
+    margin:0 auto;
+    width:100%;
+    height:auto;
+    overflow:hidden;
+}
+
+#cover_wrapper{
+    margin:5px auto;
+    padding:15px;
+    height:auto;
+    overflow:hidden;
+}
+
+#cover_menu_left{
+    min-width:205px;
+    max-width:205px;
+    width:23%;
+    height:420px;
+    margin-top: 35px;
+    padding:10px;
+    #gradient > .vertical(#fff, #f0f0f0);
+    .border-radius(0 5px 5px 5px);
+    border:1px solid #cbcaca;
+    .box-shadow(~'0 1px 1px #ddd, inset 0 0 1px 0 #fff');
+}
+    
+#cover_menu_left { 
+    
+    ul {
+        display:block; 
+        margin:20px 0;
+
+        li {
+            display: block;
+            cursor: pointer;
+            overflow: hidden;
+            margin: 10px 0;
+            padding: 5px;
+            width: 95%;
+            background: #f0eeee;
+            border: 1px solid #404040;
+            .border-radius(4px);
+            text-align:center;
+            color:#fff;
+        }
+    } 
+}  
+.add_active{
+    display:block;
+    clear:both;
+    margin-top:10px;
+}
+.add_active {
+
+    h2 {
+        font-size:15px;
+        font-weight:bold;
+    }   
+}
+.add_hide{
+    display:none;
+}
+.front_display{
+    display:none;
+}
+.back_display{
+    display:block !important;
+}
+#cover_menu_left{
+    
+    ul {
+        li{
+            &.selected {
+                #gradient > .vertical(#ff983b, #fd7d08);
+                .box-shadow(~'1px 0 #C4C4C4, inset 0 1px 0 #ffac61');
+                border: 1px solid #fe9d45;
+                border-bottom: none;
+                border-radius:7px 7px 0px 0px !important;
+                border-style:solid solid none !important;
+                border-width:1px 1px medium !important;
+                bottom:-1px !important;
+                float:left;
+                line-height:31px;
+                margin: 0 2px 0 0 !important;
+                overflow: hidden !important;
+                padding: 0 !important;
+                position: relative !important;
+                color:#000000;
+                font-weight:bold;
+            }
+        }
+    } 
+    
+}
+#cover_menu_left_bottom {
+    display: block;
+    float: left;
+    margin-top: 150px;
+}
+
+.cover_right_back {
+
+    .book_bleed {
+        float: right;
+        width: 55px;
+        height: 100%;
+        background-color: #141619;
+        #gradient > .vertical(#222529, #141619);
+        border-color: #252525;
+        .border-radius(0 10px 10px 0);
+        .box-shadow(-1px 0 1px 0px #000);
+    }
+    #cover_img_wrapper {
+        padding: 20px 90px 20px 35px;
+    }
+    
+}
+    
+#cover_preview_page {
+    margin: 0;
+    padding: 0 0 15px 40px;
+    background: #3399FF;
+    #gradient > .vertical(#39F, #036);
+    width: 800px;
+    height: 478px;
+    overflow: hidden;
+    .box-shadow(inset 10px 0 50px 30px #39F);
+
+    .back_cover {
+        margin: 0;
+        padding: 0 0 15px 40px;
+        background: #3399FF;
+        #gradient > .vertical(#39F, #036);
+        width: 800px;
+        height: 478px;
+        overflow: hidden;
+        .box-shadow(inset -50px 0 50px 30px #39F);
+    }
+}
+.cover_preview_front {
+    width: 700px;
+    height: 440px;
+    padding: 0 20px;
+    margin: 8px 0 0 5px;
+    display: block;
+}
+.cover_preview_back {
+    background: transparent url(/images/HardCover_back-cover.png) 0% 0% no-repeat;
+    background-size: 100% 100%;
+    border: 1px solid #EEE;
+    padding: 10px;
+    width: 800px;
+    height: 478px;
+    display: block;
+}
+#cover_preview_img_wrapper {
+    width: 700px; height: 440px;
+    padding: 0; margin: 0;
+}
+    
+.cover_preview_front {
+
+    ul {
+        &#cover_friends_pic {
+            display: block;
+            width: 85%; height: 55%;
+            margin: 5px 0 0 55px;
+
+            li {
+                display: inline-block;
+                background: #F9F9F9;
+                padding: 5px;
+                border: 1px solid #EEEEEE;
+                margin: 5px;
+            }
+        }
+    }
+    
+}
+
+.cover_preview_back {
+
+    ul {
+        &#cover_friends_pic {
+            display: block !important;
+            width: 120% !important;
+            height: 100% !important;
+            margin-top: -38px;
+            margin-left: -88px;
+            margin-right: auto;
+        }
+    }
+    
+}
+    
+#cover_preview_img_wrapper {
+
+    #cover_prof_pic {
+        margin: 65px 0 0 236px;
+        padding: 10px;
+        display: none;
+        cursor: default;
+    }
+}
+    
+#cover_preview_img_wrapper {
+
+    input {
+        &#cover_title {
+            width: 680px;
+            margin: 0 0 0 9px;
+            height: 23px;
+            font-size: 23px;
+            padding: 10px;
+            border: none;
+            cursor: default;
+            border: none;
+        }
+        &#cover_author {
+            width: 620px;
+            height: 18px;
+            display: block;
+            text-align: center;
+            font-size: 16px;
+            cursor: default;
+            padding: 5px;
+            position: absolute;
+            margin-left: auto;
+            margin-right: auto;
+            bottom: 10px;
+            border: none;
+        }
+    }
+    
+}
+
+input {
+    &#cover_title {
+        color: #000;
+    }
+    
+}
+#cover_author { color: #000; }
+    
+#cover_friends_pic { 
+    width:415px;
+    margin:15px 7px auto;
+
+    li {
+        display:inline-block;
+        background:#F9F9F9;
+        padding:3px;
+        border:1px solid #EEEEEE;
+        margin:5px;
+        width:auto;
+        height:auto;
+    }
+}
+
+/* Add or Remove Friends pop-up screen */
+#form_container_arf {
+    width: auto;
+    height: auto;
+    background-color: #fff;
+    border: 1px solid #555555;
+    border-top: none;
+    z-index: 99999999;
+    overflow: hidden;
+
+    .input_search {
+        float: right;
+        width: 92%;
+        height: 18px;
+        border: none;
+    }
+    #search {
+        float: left;
+        cursor: pointer;
+        padding: 2px 2px 2px 9.5px;
+        border: none;
+    }
+    ul {
+        &#add_remove_friends {
+            width: 100%;
+            display: block;
+            overflow-y: scroll;
+            height: 300px;
+            z-index:9999999;
+            border-top: 1px solid #555555;
+
+
+            li {
+                display: inline-block;
+                margin: 10px 10px auto;
+                width: 175px;
+                font-size: 10px;
+                float: left; 
+                height: 35px;
+
+                input[type="checkbox"]{
+                    opacity: 100 !important;
+                    float: left !important;
+                    background-color: #e9ecee !important;
+                    border: 1px solid #cacece !important;
+                    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05) !important;
+                    padding: 8px !important;
+                    border-radius: 3px !important;
+                    display: inline-block !important;
+                    position: relative !important;
+                    top: 12px !important;
+                    cursor: pointer !important;
+                }
+                img {
+                    padding: 2px;
+                    border: 1px solid #cacece;
+                    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+                    margin: 2px;
+                }
+                span {
+                    position: relative;
+                    top: 9px;
+                }
+            }
+        }
+    }
+}
+
+/* end of Cover tab CSS */
+.bar {
+    height:20px;
+    width:200px;
+    padding:10px;
+    margin:200px auto 0;
+    background-color:rgba(0,0,0,.1);
+    .border-radius(20px);
+    .box-shadow(~'0 1px 0 rgba(255,255,255,.03),inset 0 1px 0 rgba(0,0,0,.1)');
+}
+
+/* 
+This is the actual bar
+*/  
+.bar span {
+    display:inline-block;
+    height:100%;
+    width:100%;
+    border:1px solid #ff9a1a;
+    border-bottom-color:#ff6201;
+    background-color:#d3d3d3;
+    .border-radius(10px);
+    .box-sizing(border-box);
+    background-image:
+        -webkit-linear-gradient(
+        -45deg,
+        rgba(255, 154, 26, 1) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 154, 26, 1) 50%,
+        rgba(255, 154, 26, 1) 75%,
+        transparent 75%,
+        transparent
+    );
+    background-image:
+        -moz-linear-gradient(
+        -45deg,
+        rgba(255, 154, 26, 1) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 154, 26, 1) 50%,
+        rgba(255, 154, 26, 1) 75%,
+        transparent 75%,
+        transparent
+    );
+    background-image:
+        -ms-linear-gradient(
+        -45deg,
+        rgba(255, 154, 26, 1) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 154, 26, 1) 50%,
+        rgba(255, 154, 26, 1) 75%,
+        transparent 75%,
+        transparent
+    );
+    background-image:
+        linear-gradient(
+        -45deg,
+        rgba(255, 154, 26, 1) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 154, 26, 1) 50%,
+        rgba(255, 154, 26, 1) 75%,
+        transparent 75%,
+        transparent
+    );
+    -webkit-background-size:50px 50px;
+    -moz-background-size:50px 50px;
+    -ms-background-size:50px 50px;
+    background-size:50px 50px;
+    -webkit-animation:move 2s linear infinite;
+    -moz-animation:move 2s linear infinite;
+    -ms-animation:move 2s linear infinite;
+    animation:move 2s linear infinite;
+    .border-radius(20px);
+    overflow: hidden;
+    .box-shadow(inset 0 10px 0 rgba(255,255,255,.2));
+}
+        
+.bar > span:after {
+    display: none;
+}
+
+/*
+Animate the stripes
+*/  
+@-webkit-keyframes move{
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}   
+@-moz-keyframes move{
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}   
+@-ms-keyframes move{
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}   
+@keyframes move{
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}   
+    

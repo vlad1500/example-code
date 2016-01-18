@@ -1,0 +1,120 @@
+
+	canvas.left-page { background: #fff; float: left; }	
+	canvas.right-page { background: #fff; float: right; }	
+
+	.hidden { display: none; }
+	
+	#flip.view1 {
+		transform-origin: center;
+		-ms-transform-origin: center; /* IE 9 */
+		-webkit-transform-origin:  center; /* Safari and Chrome */
+		-moz-transform-origin: center; /* Firefox */
+		-o-transform-origin:center; /* Opera */	
+		
+		width: 800px;
+		margin: 0 auto;		
+	}
+	
+	#flip.view2 {
+		transform-origin: left center;
+		-ms-transform-origin: left center; /* IE 9 */
+		-webkit-transform-origin: left center; /* Safari and Chrome */
+		-moz-transform-origin:left center; /* Firefox */
+		-o-transform-origin:left center; /* Opera */
+		
+		padding: 50px 100px; 
+		/*background: url(/images/edit_album/book.png) no-repeat center;*/
+		background: url(/images/booklet/bg.png) no-repeat center;
+		background-size: 100% 100%;
+		
+		width: 1600px;
+		height: 500px;
+		margin: 0 auto;	
+	}
+	
+	canvas.selected { border: 2px dashed #00f; }
+
+
+	.holder.view1 { width: 800px; background: #fff; }
+	.holder.view2 { width: 1630px; }
+	.holder.view2 .layout1 { float: left; margin-left: 15px; }
+
+	
+	/*#my_edit { min-width: 610px; overflow: hidden; white-space: normal !important; }
+	#my_edit { 	
+		background: url(/images/HardCover_gridBg.gif) repeat scroll 0 0 transparent; 	
+		padding: 10px 0;
+		
+	}*/
+	#hc_book { height: 478px; margin: 0 auto;  }
+	#hc_book .layout1 {  min-height: 478px; }
+	.layout1 { font: normal 11px 'lucida grande',tahoma,verdana,arial,sans-serif; min-width: 800px;}
+	.layout1 .col, .layout1 .col-status { float: left; width: 400px; }
+	.layout1 .col-status {
+		font-size: 22px; 
+		padding: 10px 0 0 25px;
+		height: 468px;
+		width: 375px;
+	}
+	
+	.layout1 .col-status .status {
+		letter-spacing: -1px; 
+		display: table-cell;			
+		text-align: center;
+	    vertical-align: middle;		
+	    width: 320px;
+	    padding: 0 15px;
+	    height: 455px;
+		border: 2px solid #aaa;
+		background: #eef;
+	}
+	
+	.layout1 .col-status .status span.quote {
+		font: bold 38px georgia;
+	}
+	
+	.layout1 .col .no-comment { padding: 25px; text-align: center; clear: both; color: #aaa; }
+	.layout1 .col .comment { padding: 5px 15px; clear: both; }
+	.layout1 .comment-text { float: right; width: 310px; color: #333;}
+	.layout1 .comment-text strong { color: #3B5998; font-weight: bold; }
+	
+	button#page-prev { float: left; }
+	button#page-next { float: right; }
+	
+	#page-numbers {
+	    height: 100%;
+	    width: 100%;
+	    overflow: hidden;
+	    margin: 0 auto;
+	    padding: 0;
+	    text-align: center;
+	}
+	#page-numbers a { display: inline-block; margin-right: 5px; padding: 5px; font: normal 12px verdana; color: #f70; text-decoration: none; }
+	#page-numbers a:hover { text-decoration: underline; }
+	#page-numbers a.selected { font-weight:bold; color:#06C; }
+	
+	#canvas-tools { 
+		margin:0 auto;
+		padding: 10px 0;
+	}
+	#canvas-tools > :last-child {
+		margin: 0;
+	}
+	.toolbox {
+		float: left;
+		width: 30.6%;
+		margin: 0 1% 0 0;
+		padding: 10px;
+		background: #ecf0f9;
+		border: 1px solid #bdc3d1;
+		-webkit-border-radius:5px;
+			-moz-border-radius:5px;
+				border-radius:5px;
+		-moz-box-shadow:0 1px 2px #d4dae7, 0 1px 0 #F7F7F7 inset;
+			-webkit-box-shadow:0 1px 2px #d4dae7, 0 1px 0 #F7F7F7 inset;
+				box-shadow: 0 1px 2px #d4dae7, 0 1px 0 #F7F7F7 inset;
+		color:#333;
+	}
+	
+	#measurement { position: absolute; left: -1000px; visibility: hidden; }
+	div#buttons { float:right; }

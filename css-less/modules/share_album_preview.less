@@ -1,0 +1,163 @@
+canvas {
+    &.left-page {
+        background: #fff; float: left;
+    }
+    &.right-page {
+        background: #fff; float: right;
+    }
+}
+.hidden { display: none; }
+
+#my_edit { 
+    min-width: 610px;
+    overflow: hidden;
+    white-space: normal !important;
+}
+#hc_book { 
+    width: 800px; 
+    height: 478px; 
+    margin: 0 auto;             
+    transform-origin: left center;
+    -ms-transform-origin: left center; /* IE 9 */
+    -webkit-transform-origin: left center; /* Safari and Chrome */
+    -moz-transform-origin:left center; /* Firefox */
+    -o-transform-origin:left center; /* Opera */
+}
+
+#invited { 
+    width: 800px;
+    float: left;
+    height: 463px;
+    background: url(/images/share_album_preview/guide.png) no-repeat left;
+}
+.add-app { 
+    text-align: center;
+
+    a {
+        position: relative; 
+        overflow: visible; 
+        display: inline-block; 
+        padding: 0.3em 0.6em 0.375em; 
+        border: 1px solid #999; 
+        border-bottom-color: #888;
+        margin: 0;
+        text-decoration: none; 
+        text-align: center;
+        font: bold 24px/normal 'lucida grande', tahoma, verdana, arial, sans-serif; 
+        white-space: nowrap; 
+        cursor: pointer; 
+        /* outline: none; */
+        color: #333;
+        #gradient > .vertical(#f5f6f6, #e4e4e3); 
+        .box-shadow(~'0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #fff');
+        /* IE hacks */
+        zoom: 1; 
+        *display: inline; 
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    p {
+        &.notice {
+            font: normal 12px verdana, sans-serif;
+            color: #00f;
+        }
+    }
+}
+#thanks { 
+    width: 800px;
+    float: right;
+    height: 463px;
+    background: url(/images/share_album_preview/thanks.png) no-repeat center;
+}
+
+#hc_cover {
+    float: right;
+    background: url(/images/share_album_preview/generic-cover.jpg) no-repeat center;
+    width: 800px;
+}
+
+.layout1 { 
+    background: #fff;
+    min-width: 800px;
+
+    .col,
+    .col-status {
+        float: left;
+        width: 400px;
+    }
+    .col-status {
+        font-size: 22px; 
+        padding: 10px 0 0 25px;
+        height: 468px;
+        width: 375px;
+
+        .status {
+            letter-spacing: -1px; 
+            display: table-cell;            
+            text-align: center;
+            vertical-align: middle;     
+            width: 320px;
+            padding: 0 15px;
+            height: 455px;
+            border: 2px solid #aaa;
+            background: #eef;
+
+            span{
+                &.quote {
+                    font: bold 38px georgia;
+                }
+            }
+        }
+    }
+    .col{
+        .no-comment {
+            padding: 25px;
+            text-align: center;
+            clear: both;
+            color: #aaa;
+        }
+    }
+    .comment-text { 
+        float: right;
+        width: 310px;
+        color: #333;
+
+        strong{
+            color: #3B5998;
+            font-weight: bold;
+        }
+    }
+}
+
+button#page-prev { float: left; }
+button#page-next { float: right; }
+
+#page-numbers {
+    a { 
+        margin-right: 5px;
+        padding: 5px;
+        font: normal 12px verdana;
+        color: #f80;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline; 
+        }
+        &.selected {
+          font-weight: bold;  
+        }
+    }
+}
+
+#canvas-tools { text-align: center; }
+.toolbox { 
+    padding: 10px 0;
+    color: #333;
+}
+#measurement { 
+    position: absolute;
+    left: -1000px; 
+    visibility: hidden;
+}

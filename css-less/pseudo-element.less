@@ -1,0 +1,245 @@
+body { 
+  min-height: 700px; 
+  margin-top:-20px; 
+  padding-top:20px;
+	font-size: 12px;
+	line-height: 1.5;
+  overflow: hidden;
+}
+
+a { 
+  color: @anchor-font-color;
+  text-decoration: none;
+}
+a:hover { color: @anchor-font-color-hover; }
+:focus {
+  outline: 0;
+}
+
+small { font-size: 11px; }
+
+ul { list-style-type: square; }
+ul, ol { margin: 0 0 10px 18px; }
+
+blockquote {
+	margin: 24px 0;
+	background: #f3efe8;
+	padding: 21px 22px;
+	border-left: 6px solid #EC6975;
+}
+
+/* ==========================================================================
+Formatted
+==========================================================================*/
+.bold { 
+  font-weight:bold;
+}
+.small_p{
+  margin:10px 0 0;
+}
+p.small {
+  line-height:1em;
+  margin: 5px 0;
+}
+p span {
+  font-size:11px;
+  color:#3f3f3f;
+}
+section p._page {
+  clear:both;
+  padding:4px 10px;
+  background:#EAEAEA;
+  border-radius:5px;
+  -moz-border-radius:5px;;
+  -webkit-border-radius:5px;
+  color:#333;
+  font-weight:bold;
+  font-size:12px;
+  font-weight:bold;
+  box-shadow:0 1px 2px #333;
+  -moz-box-shadow:0 1px 2px #333;
+  -webkit-box-shadow:0 1px 2px #333;  
+  position:absolute;
+  bottom:10px;
+  left:10px;
+}
+
+.hideDiv { 
+  display:none; 
+}
+.active  { 
+  display:block;
+}
+.shadow {
+   -moz-box-shadow:    inset 0 0 50px #DCDCDC;
+   -webkit-box-shadow: inset 0 0 50px #DCDCDC;
+   box-shadow:         inset 0 0 50px #DCDCDC;
+}
+.float_left { 
+  float:left; 
+}
+.float_right { 
+  float:right; 
+}
+.no_underline { 
+  text-decoration:none; 
+}
+
+.ximg { 
+  position:relative; 
+  float:right; 
+  margin-left:-20px; 
+  z-index:99990; 
+  cursor:pointer; 
+  opacity:97;
+}
+/* ==========================================================================
+End Formatted
+==========================================================================*/
+
+/* ==========================================================================
+Preloader
+==========================================================================*/
+#app_loader { 
+  width:100%;
+  height:100%;
+  background:#FAFAFA;
+  opacity:.7;
+  -ms-filter:.7;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:999999999;
+}
+.bar {
+  height:20px;
+  width:200px;
+  padding:10px;
+  margin:200px auto 0;
+  background-color:rgba(0,0,0,.1);
+  -webkit-border-radius:25px;
+  -moz-border-radius:25px;
+  -ms-border-radius:25px;
+  border-radius:20px;
+  -webkit-box-shadow:0 1px 0 rgba(255,255,255,.03),inset 0 1px 0 rgba(0,0,0,.1);
+  -moz-box-shadow:0 1px 0 rgba(255,255,255,.03),inset 0 1px 0 rgba(0,0,0,.1);
+  -ms-box-shadow:0 1px 0 rgba(255,255,255,.03),inset 0 1px 0 rgba(0,0,0,.1);
+  box-shadow:0 1px 0 rgba(255,255,255,.03),inset 0 1px 0 rgba(0,0,0,.1);
+}
+
+/* This is the actual bar */  
+.bar span {
+  display:inline-block;
+  height:100%;
+  width:100%;
+  border:1px solid #ff9a1a;
+  border-bottom-color:#ff6201;
+  background-color:#d3d3d3;
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  -ms-border-radius:10px;
+  border-radius:10px;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -ms-box-sizing:border-box;
+  box-sizing:border-box;
+  background-image:
+    -webkit-linear-gradient(
+    -45deg,
+    rgba(255, 154, 26, 1) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 154, 26, 1) 50%,
+    rgba(255, 154, 26, 1) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-image:
+    -moz-linear-gradient(
+    -45deg,
+    rgba(255, 154, 26, 1) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 154, 26, 1) 50%,
+    rgba(255, 154, 26, 1) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-image:
+    -ms-linear-gradient(
+    -45deg,
+    rgba(255, 154, 26, 1) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 154, 26, 1) 50%,
+    rgba(255, 154, 26, 1) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-image:
+    linear-gradient(
+    -45deg,
+    rgba(255, 154, 26, 1) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 154, 26, 1) 50%,
+    rgba(255, 154, 26, 1) 75%,
+    transparent 75%,
+    transparent
+  );
+  -webkit-background-size:50px 50px;
+  -moz-background-size:50px 50px;
+  -ms-background-size:50px 50px;
+  background-size:50px 50px;
+  -webkit-animation:move 2s linear infinite;
+  -moz-animation:move 2s linear infinite;
+  -ms-animation:move 2s linear infinite;
+  animation:move 2s linear infinite;
+  -webkit-border-radius:20px;
+  -moz-border-radius:20px;
+  -ms-border-radius:20px;
+  border-radius:20px;
+  overflow: hidden;
+  -webkit-box-shadow:inset 0 10px 0 rgba(255,255,255,.2);
+  -moz-box-shadow:inset 0 10px 0 rgba(255,255,255,.2);
+  -ms-box-shadow:inset 0 10px 0 rgba(255,255,255,.2);
+  box-shadow:inset 0 10px 0 rgba(255,255,255,.2);
+}
+    
+.bar > span:after {
+  display: none;
+}
+
+/* Animate the stripes */ 
+@-webkit-keyframes move{
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+} 
+@-moz-keyframes move{
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+} 
+@-ms-keyframes move{
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+} 
+@keyframes move{
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}
